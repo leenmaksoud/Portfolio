@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Turf Wars Competition Robot — Leen Maksoud</title>
+<meta name="description" content="ES 51 Computer-Aided Machine Design: a scoop-and-claw competition robot, designed, analyzed, and built from acrylic, PLA, and cast silicone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">L. MAKSOUD<small>ELECTRICAL ENGINEERING &middot; HARVARD</small></a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About</a></li>
+      <li><a href="index.html#work" class="active">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <!-- ============ PROJECT HERO ============ -->
+  <div class="blueprint-bg">
+    <div class="wrap">
+      <p class="breadcrumb"><a href="index.html">Home</a> / <a href="index.html#work">Projects</a> / Turf Wars Robot</p>
+    </div>
+    <img class="proj-hero-img" src="assets/img/final_assembled_top.jpg" alt="Final assembled Turf Wars robot: orange acrylic chassis with a red four-bar arm and 3D-printed scoop-claw end effector">
+    <div class="wrap">
+      <div class="title-block" style="margin:28px 0 40px; border-top:none;">
+        <p class="eyebrow">ES 51 &middot; Computer-Aided Machine Design</p>
+        <h1 class="tb-name" style="font-size:clamp(40px,7vw,84px);">TURF WARS<br>ROBOT</h1>
+        <p class="tb-tagline">A scoop-and-claw robot built with a team of five to navigate ramps, sort game objects, and hold up under a live head-to-head match — my first project taking a design all the way from CAD to competition floor.</p>
+        <div class="tb-fields">
+          <div class="tb-field"><div class="k">Team</div><div class="v">Team 1, "The Winners"</div></div>
+          <div class="tb-field"><div class="k">Timeline</div><div class="v">12 weeks, Spring 2026</div></div>
+          <div class="tb-field"><div class="k">My Role</div><div class="v">Concept &amp; Fabrication</div></div>
+          <div class="tb-field"><div class="k">Tools</div><div class="v">SolidWorks, Shop Floor</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="paper-bg">
+    <div class="wrap">
+
+      <!-- ============ THE CHALLENGE ============ -->
+      <section class="reveal">
+        <p class="sheet-index">Sheet 01 — Context</p>
+        <p class="eyebrow">The Challenge</p>
+        <h2 class="section-title">Turf Wars.</h2>
+        <p class="lede">ES 51 is Harvard's project-based introduction to mechanical design and shop fabrication. The semester built toward Turf Wars: 4-minute head-to-head matches where robots navigate a turf field, climb 15&deg; and 30&deg; ramps, and sort objects of different sizes and weights into inventory or trash zones — all under a tight set of shared constraints.</p>
+
+        <div class="constraints-grid">
+          <div class="constraint">
+            <p class="cnum">01 / Size</p>
+            <h4>11&Prime; Box of Justice</h4>
+            <p>The robot had to fit inside an 11&times;11&times;11 in. volume at the start of every round, though it could expand once play began.</p>
+          </div>
+          <div class="constraint">
+            <p class="cnum">02 / Time</p>
+            <h4>12-Week Build</h4>
+            <p>Concept selection, design review, CAD, and fabrication all had to close out by a hard deadline — no changes allowed after.</p>
+          </div>
+          <div class="constraint">
+            <p class="cnum">03 / Material</p>
+            <h4>Shared Stock Only</h4>
+            <p>Every team drew from the same acrylic, PLA, shafts, silicone, servos, and hardware — no team could out-buy another.</p>
+          </div>
+          <div class="constraint">
+            <p class="cnum">04 / Actuators</p>
+            <h4>6 Max, 3 DC Motors</h4>
+            <p>A hard actuator budget shaped every decision on the drivetrain and the intake mechanism from day one.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONCEPT DEVELOPMENT ============ -->
+      <section class="reveal">
+        <p class="sheet-index">Sheet 02 — Concept Development</p>
+        <p class="eyebrow">Choosing a Direction</p>
+        <h2 class="section-title">Three concepts, one Pugh matrix.</h2>
+        <p class="lede">We sketched and scored three intake concepts against the criteria that actually mattered for the field: how fast we could collect objects, how cleanly we could dispense them, claw precision, ramp stability, and ease of building.</p>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="cc-img"><img src="assets/img/fig1_claw_bucket_sketch.jpg" alt="Sketch of a claw and grabber concept with a rear storage bucket"></div>
+            <div class="cc-body">
+              <h4>Claw/Grabber + Bucket</h4>
+              <p>Precise pickup and high storage capacity, but too many degrees of freedom for the actuator budget — added weight, torque demand, and build time.</p>
+              <span class="cc-verdict verdict-rejected">Rejected — too complex</span>
+            </div>
+          </div>
+          <div class="concept-card">
+            <div class="cc-img"><img src="assets/img/fig2_scoop_conveyor_sketch.jpg" alt="Sketch of a scoop with conveyor belt concept"></div>
+            <div class="cc-body">
+              <h4>Scoop + Conveyor Belt</h4>
+              <p>Stable and low center of gravity, with room for more than two objects at once — but no clear way to empty what it collected.</p>
+              <span class="cc-verdict verdict-rejected">Rejected — no dispensing</span>
+            </div>
+          </div>
+          <div class="concept-card">
+            <div class="cc-img"><img src="assets/img/fig3a_cardboard_prototype.jpg" alt="Cardboard prototype of the scoop-claw with arm concept"></div>
+            <div class="cc-body">
+              <h4>Scoop-Claw with Arm</h4>
+              <p>Started as a cardboard prototype with a pulley-driven lift; refined to a simpler arm linkage. Precise intake with sufficient storage, at the cost of extra actuators.</p>
+              <span class="cc-verdict verdict-selected">Selected</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pugh-wrap">
+          <table class="pugh">
+            <thead>
+              <tr>
+                <th>Criteria</th>
+                <th>Claw/Grabber + Bucket <span style="opacity:.7;">(ref.)</span></th>
+                <th>Scoop + Conveyor Belt</th>
+                <th class="selected-col">Scoop-Claw with Arm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Dispensing capability</td><td>0</td><td class="neg">&minus;1</td><td class="selected-col pos">+1</td></tr>
+              <tr><td>Collection speed</td><td>0</td><td class="pos">+1</td><td class="selected-col pos">+1</td></tr>
+              <tr><td>Claw precision</td><td>0</td><td class="neg">&minus;1</td><td class="selected-col">0</td></tr>
+              <tr><td>Stability over ramp</td><td>0</td><td class="pos">+1</td><td class="selected-col pos">+1</td></tr>
+              <tr><td>Ease of building</td><td>0</td><td class="pos">+1</td><td class="selected-col pos">+1</td></tr>
+              <tr><td>Total evaluation</td><td>0</td><td>+1</td><td class="selected-col">+4</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ MY ROLE ============ -->
+      <section class="reveal">
+        <p class="sheet-index">Sheet 03 — My Role</p>
+        <p class="eyebrow">What I Owned</p>
+        <div class="role-block">
+          <div>
+            <h2 class="section-title" style="margin-bottom:0;">On a team of five.</h2>
+            <ul class="role-list">
+              <li><span class="tag">CONCEPT</span> Contributed to concept development and the scoring that led us to the scoop-claw-with-arm design</li>
+              <li><span class="tag">REPORT</span> Wrote the cover and abstract for the final technical report</li>
+              <li><span class="tag">CAD</span> Worked in SolidWorks on part and assembly modeling</li>
+              <li><span class="tag">SHOP</span> Hands-on fabrication: drilling, milling, laser cutting, and 3D printing chassis and mechanism parts</li>
+            </ul>
+          </div>
+          <div class="reveal about-photo-frame">
+            <img src="assets/img/build_bench_disassembled.jpg" alt="Disassembled robot parts, hardware, and tools laid out on the shop workbench mid-build">
+            <p class="about-photo-caption">Mid-build: chassis plate, gearbox, and hardware laid out before assembly</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ DESIGN & BUILD ============ -->
+      <section class="reveal">
+        <p class="sheet-index">Sheet 04 — Fabrication</p>
+        <p class="eyebrow">Design &amp; Build</p>
+        <h2 class="section-title">CAD to cut parts.</h2>
+        <p class="lede">The chassis, pillars, and arm links were laser-cut from acrylic; the scoop, claw, and mounting brackets were 3D-printed in PLA. Wheels were custom-cast in Eco-Flex&nbsp;50 silicone from CNC-milled wax molds, chosen after testing softer and firmer silicone blends for grip on turf. Shafts were turned on the lathe to hold tight tolerances, and the two drive motors were mounted facing opposite directions to keep the whole drivetrain compact and centered.</p>
+
+        <div class="gallery">
+          <div class="g-item">
+            <div class="g-media"><img src="assets/img/fig7_final_cad.jpg" alt="Final SolidWorks CAD render of the robot showing the arm tower and gearbox"></div>
+            <p class="g-cap">Final assembly CAD</p>
+          </div>
+          <div class="g-item">
+            <div class="g-media"><img src="assets/img/fig5_wheel_mold.jpg" alt="Custom wheel cast in blue Eco-Flex 50 silicone, still in its wax mold"></div>
+            <p class="g-cap">Custom wheel, cast in Eco-Flex 50 silicone</p>
+          </div>
+          <div class="g-item">
+            <div class="g-media"><img src="assets/img/baseplate_underside_calipers.jpg" alt="Underside of the red acrylic baseplate with cast wheels, being measured with calipers"></div>
+            <p class="g-cap">Checking wheel tolerances with a dial caliper</p>
+          </div>
+        </div>
+
+        <div class="gallery two" style="margin-top:20px;">
+          <div class="g-item wide">
+            <div class="g-media"><img src="assets/img/fig8_exploded_front.jpg" alt="Exploded CAD view of the robot from the front, showing the arm tower, gearbox, and wheel assemblies"></div>
+            <p class="g-cap">Exploded assembly, front view — arm tower, gearbox, and wheel sets</p>
+          </div>
+          <div class="g-item wide">
+            <div class="g-media"><img src="assets/img/fig9_exploded_bottom.jpg" alt="Exploded CAD view of the robot from the bottom, showing the drivetrain gear reduction on each side"></div>
+            <p class="g-cap">Exploded assembly, bottom view — 3:1 drivetrain gear reduction</p>
+          </div>
+        </div>
+
+        <div class="gallery two" style="margin-top:20px;">
+          <div class="g-item wide">
+            <div class="g-media">
+              <video src="assets/video/cad_shop_closeup.mp4" poster="assets/img/cad_shop_closeup_poster.jpg" controls playsinline muted preload="metadata"></video>
+            </div>
+            <p class="g-cap">Mounting a gearmotor to the drivetrain bracket</p>
+          </div>
+          <div class="g-item wide">
+            <div class="g-media">
+              <video src="assets/video/arm_claw_bench_test.mp4" poster="assets/img/arm_claw_bench_test_poster.jpg" controls playsinline muted preload="metadata"></video>
+            </div>
+            <p class="g-cap">Bench-testing the arm and claw actuation before competition day</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ ANALYSIS ============ -->
+      <div class="blueprint-bg" style="margin:0 -1000px; padding:0 1000px;">
+      <section class="reveal">
+        <p class="sheet-index" style="color:var(--blueprint-line);">Sheet 05 — Analysis</p>
+        <p class="eyebrow">Does It Actually Work?</p>
+        <h2 class="section-title" style="color:#F6F1E4;">Hand calculations, checked against the build.</h2>
+        <p class="analysis-note">Before trusting the robot to the field, the team ran the numbers on drivetrain torque, arm lifting torque, arm bending stress, and tipping stability &mdash; using the measured wheel radius, motor characterization data, and final CAD geometry.</p>
+
+        <div class="spec-grid">
+          <div class="spec-cell">
+            <div class="sv">3.8&times;</div>
+            <div class="sk">Drivetrain safety factor</div>
+            <div class="sd">Available wheel torque vs. torque required to climb the 30&deg; ramp at 1.4V</div>
+          </div>
+          <div class="spec-cell">
+            <div class="sv">4&times;</div>
+            <div class="sk">Arm torque margin</div>
+            <div class="sd">2.77&ndash;3.24 N&middot;m available from the MG995 servo vs. 0.69 N&middot;m required to lift the scoop and payload</div>
+          </div>
+          <div class="spec-cell">
+            <div class="sv">1.96 MPa</div>
+            <div class="sk">Peak arm stress</div>
+            <div class="sd">Well under the ~10.4 MPa design stress for the acrylic arm links</div>
+          </div>
+          <div class="spec-cell">
+            <div class="sv">30.3&deg;</div>
+            <div class="sk">Tipping threshold</div>
+            <div class="sd">Calculated tip angle on a 30&deg; ramp &mdash; a razor-thin stability margin</div>
+          </div>
+        </div>
+        <p class="analysis-note">The conclusion mattered as much as the numbers: every subsystem had enough theoretical strength and torque. The real weak points that showed up on competition day &mdash; gear alignment and ramp stability &mdash; were exactly what the shaft-deflection and tipping calculations predicted, not a sign the robot was underpowered.</p>
+      </section>
+      </div>
+
+      <!-- ============ COMPETITION PERFORMANCE ============ -->
+      <section class="reveal">
+        <p class="sheet-index">Sheet 06 — Results</p>
+        <p class="eyebrow">Competition Day</p>
+        <h2 class="section-title">What actually happened.</h2>
+
+        <div class="gallery two">
+          <div class="g-item wide">
+            <div class="g-media"><img src="assets/img/fig6_competition_day.jpg" alt="The robot on the competition turf field, arm extended toward the scoring boxes, with a ball and hockey puck nearby"></div>
+            <p class="g-cap">Mid-match, scoop extended toward the scoring zone</p>
+          </div>
+          <div class="g-item wide">
+            <div class="g-media">
+              <video src="assets/video/competition_floor_run.mp4" poster="assets/img/competition_floor_run_poster.jpg" controls playsinline muted preload="metadata"></video>
+            </div>
+            <p class="g-cap">Drivetrain crossing the competition floor</p>
+          </div>
+        </div>
+
+        <div class="results-strip">
+          <div class="result-panel">
+            <h4>What worked</h4>
+            <p>The drivetrain handled the turf course cleanly through the early rounds. When operated carefully, the scoop-claw could trap objects of very different shapes — from a hockey puck to a ping-pong ball — and the arm reliably lifted and deposited them, especially into the wide trash zone.</p>
+          </div>
+          <div class="result-panel">
+            <h4>What didn't</h4>
+            <p>The scoop was more flexible than intended and could over-extend, occasionally slipping off its gear track. A gearbox misalignment on the right wheel, combined with a stability margin that our own calculations had already flagged as razor-thin, kept the robot from fully climbing the 30&deg; ramp in the final rounds.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ REFLECTION ============ -->
+      <section class="reveal">
+        <p class="sheet-index">Sheet 07 — Reflection</p>
+        <p class="eyebrow">What I'd Change</p>
+        <h2 class="section-title">Future improvements.</h2>
+        <ul class="future-list">
+          <li><span class="fnum">01</span><span>Widen the scoop's gear rail so it can't slip and detach mid-match — a small geometry fix for a recurring failure.</span></li>
+          <li><span class="fnum">02</span><span>Shift the center of mass forward to widen the stability margin on steep ramps instead of running right at the tipping threshold.</span></li>
+          <li><span class="fnum">03</span><span>Keep simplifying: our biggest reliability wins came from the simpler chassis, not the more complex arm.</span></li>
+          <li><span class="fnum">04</span><span>Build in dedicated testing time for every subsystem — the chassis got it and performed best on the field; the arm didn't and it showed.</span></li>
+        </ul>
+      </section>
+
+      <!-- ============ TEAM ============ -->
+      <section class="reveal">
+        <p class="sheet-index">Sheet 08 — Credits</p>
+        <p class="eyebrow">Team 1, "The Winners"</p>
+        <h2 class="section-title">Built with four teammates.</h2>
+        <div class="team-roster">
+          <div class="team-row you"><div class="tn">Leen Maksoud</div><div class="tc">Cover, abstract, concept development, CAD, fabrication</div></div>
+          <div class="team-row"><div class="tn">Alexis Urquhart</div><div class="tc">Final solutions, text &amp; figure formatting, content editing</div></div>
+          <div class="team-row"><div class="tn">Carlos Garcia</div><div class="tc">Analysis and physics calculations</div></div>
+          <div class="team-row"><div class="tn">Joaquin Castro-Balbi</div><div class="tc">Final CAD and robot measurements</div></div>
+          <div class="team-row"><div class="tn">Jonathan Waldorf</div><div class="tc">Final design specifications, bill of materials, edit/polish</div></div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- ============ CONTACT / FOOTER ============ -->
+  <footer class="site-footer" id="contact">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <p class="eyebrow">Get in touch</p>
+          <h3 class="footer-title">Let's build<br>something.</h3>
+          <p class="footer-sub">Open to conversations about product design, manufacturing, or shop projects. Reach out any time.</p>
+        </div>
+        <div class="contact-fields">
+          <div class="contact-field"><span class="k">Email</span><a href="mailto:leenmaksoud@college.harvard.edu">leenmaksoud@college.harvard.edu</a></div>
+          <div class="contact-field"><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/leen-maksoud-05224a2a5" target="_blank" rel="noopener">linkedin.com/in/leen-maksoud</a></div>
+          <div class="contact-field"><span class="k">Based at</span><span>Harvard College, Cambridge MA</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Leen Maksoud</span>
+        <span><a href="index.html" style="color:inherit;">&larr; Back to home</a></span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+</body>
+</html>
